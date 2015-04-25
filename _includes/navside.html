@@ -9,8 +9,8 @@
          <li><a href="#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
         {% endfor %}
         <li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>  
-        <li><a class="pjaxlink" href="./pages/archive.html">{{ site.locals.archive }}</a></li>
-        <li><a class="pjaxlink" href="./pages/about.html">{{ site.locals.about }}</a></li>
+        <li><a class="pjaxlink" href="{{ site.url }}/pages/archive.html">{{ site.locals.archive }}</a></li>
+        <li><a class="pjaxlink" href="{{ site.url }}/pages/about.html">{{ site.locals.about }}</a></li>
         <!-- <li><a href="#tags" data-toggle="tab"><i class="fa fa-tags fa-lg"></i></a></li>
         <li><a class="pjaxlink" href="/pages/archive.html"><i class="fa fa-archive fa-lg"></i></a></li>
         <li><a class="pjaxlink" href="/pages/about.html"><i class="fa fa-user fa-lg"></i></a></li>
@@ -33,7 +33,7 @@
               <div class="list-group">
                 <!--<h2 class="center">{{ category[0] }}</h2>-->     <!--原来aside2上面的大标题-->
                 {% for post in category[1] %}
-                  <a href="./{{ post.url }}" class="list-group-item-lay pjaxlink">{{post.title}}</a>
+                  <a href="{{ site.url }}{{ post.url }}" class="list-group-item-lay pjaxlink">{{post.title}}</a>
                 {% endfor %}
               </div>
             </div>
@@ -51,7 +51,7 @@
                   </div>
                   <div id="{{ tag[0] }}" class="panel-collapse collapse">
                     {% for post in tag[1] %}
-                      <a  href='./{{ post.url }}' class="list-group-item pjaxlink">
+                      <a  href='{{ site.url }}{{ post.url }}' class="list-group-item pjaxlink">
                         {{post.title}}
                       </a>
                     {% endfor %}
