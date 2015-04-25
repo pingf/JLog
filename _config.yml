@@ -13,11 +13,11 @@ author:
 title: Makefile君的Blog
 description: My personal blog
 url: http://404
-rss_url: /pages/atom.xml
+rss_url: ./pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: /public/img/deer3.png
-favicon: /public/img/deer3.png
+gavatar: ./public/img/deer3.png
+favicon: ./public/img/deer3.png
 
 
 # disqus 设置
