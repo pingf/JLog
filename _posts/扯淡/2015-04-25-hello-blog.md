@@ -2,7 +2,7 @@
 layout: post
 title: hello blog
 category: 挖坑
-tags: LaTeX
+tags: 
 keywords: 
 description: 
 ---
