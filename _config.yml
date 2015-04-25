@@ -1,0 +1,40 @@
+permalink: /:year/:month/:day/:title.html
+paginate: 10
+markdown: redcarpet
+
+# 作者信息
+author: 
+  name: Jesse MENG
+  email: pingf0@gmail.com
+  link: http://404
+  github: http://github.com/pingf
+
+# 站点信息
+title: Makefile君的Blog
+description: My personal blog
+url: http://404
+rss_url: /pages/atom.xml
+
+# gavatar头像及Favicon
+gavatar: /public/img/deer3.png
+favicon: /public/img/deer3.png
+
+
+# disqus 设置
+disqus:
+  shortname: pingf
+
+# 主题设置，自动激活某个标签
+active: 挖坑
+
+# 首页除了最新文章外显示分类
+cates: 
+# - 1
+# - 2
+
+# 中文本地化
+locals:
+  tags: 标签
+  about: 关于
+  newest: 最新文章
+  archive: 归档
