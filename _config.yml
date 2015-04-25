@@ -6,13 +6,13 @@ markdown: redcarpet
 author: 
   name: Jesse MENG
   email: pingf0@gmail.com
-  link: http://pingf.github.io/JLog/
+  link: http://pingf.github.io/JLog
   github: http://github.com/pingf
 
 # 站点信息
 title: Makefile君的Blog
 description: My personal blog
-url: http://pingf.github.io/JLog/
+url: http://pingf.github.io/JLog
 rss_url: ./pages/atom.xml
 
 # gavatar头像及Favicon
