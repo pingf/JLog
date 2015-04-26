@@ -1,7 +1,7 @@
 ---
 layout: post
 title: hello blog
-category: 挖坑
+category: 扯淡
 tags: 
 keywords: 
 description: 
