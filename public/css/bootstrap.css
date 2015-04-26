@@ -5337,7 +5337,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     /*border: 0px solid #ddd;*/
 
     /* margin-right: 0px; margin-left: 35px; */
-    margin: 0 15px;
+    margin: 0 5%;
 }
 
 a.list-group-item-lay:hover, a.list-group-item-lay:focus {
