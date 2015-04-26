@@ -16,8 +16,8 @@ url: http://pingf.github.io/JLog #http://127.0.0.1:4000 #
 rss_url: ./pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: ./public/img/profile/avatar_blb.png
-favicon: ./public/img/profile/avatar_blb.png
+gavatar: http://pingf.github.io/JLog/public/img/profile/avatar_blb.png
+favicon: http://pingf.github.io/JLog/public/img/profile/avatar_blb.png
 
 
 # disqus 设置
