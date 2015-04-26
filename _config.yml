@@ -12,7 +12,7 @@ author:
 # 站点信息
 title: Makefile君的Blog
 description: My personal blog
-url: http://127.0.0.1:4000 #http://pingf.github.io/JLog #http://127.0.0.1:4000 #
+url: http://pingf.github.io/JLog #http://127.0.0.1:4000 #
 rss_url: ./pages/atom.xml
 
 # gavatar头像及Favicon
