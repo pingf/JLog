@@ -5727,8 +5727,10 @@ a.list-group-item-danger.active:focus {
 }
 
 .panel-group {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px;
     margin-left: 35px;
+    此处修改了一下 */
+    margin: 20px 15px 0 15px;
 }
 
 .panel-group .panel {

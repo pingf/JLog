@@ -12,12 +12,12 @@ author:
 # 站点信息
 title: Makefile君的Blog
 description: My personal blog
-url: http://pingf.github.io/JLog
+url: http://127.0.0.1:4000 #http://pingf.github.io/JLog
 rss_url: ./pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: ./public/img/deer3.png
-favicon: ./public/img/deer3.png
+gavatar: /public/img/profile/avatar_blb.png
+favicon: /public/img/profile/avatar_blb.png
 
 
 # disqus 设置
