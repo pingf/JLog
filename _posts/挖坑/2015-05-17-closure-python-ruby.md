@@ -1,0 +1,184 @@
+---
+layout: post
+author: Makefile君
+title: closure python ruby
+category: 挖坑
+tags: python ruby
+date: 2015-05-17 23:04:27
+keywords:
+description:
+---
+
+#python与ruby闭包设计上的差异
+
+在《黑客与画家》中有篇吹lisp顺带黑python的文章[《为什么Lisp语言如此先进》](http://www.ruanyifeng.com/blog/2010/10/why_lisp_is_superior.html)，
+其中有段很简单的却蛮有意思的代码，就是让一个函数（函数foo）返回一个累加器（函数acc），而累加器中用于累加的变量是属于函数foo的。
+
+- lisp的代码如下
+
+```lisp
+(defun foo (n)
+    (lambda (i) (incf n i)))
+```
+
+- ruby的代码如下
+
+```ruby
+def foo (n)
+  ->(i) { n += i }
+end
+```
+
+- 然后是python的代码
+
+```python
+def foo (n):
+    return lambda i: return n += i
+```
+
+等等，我大python的代码其实是不能work的，如果你运行下面的代码
+
+```python
+def foo(n):
+    return lambda i: return n += i
+
+a=foo(0)
+print(a(1))
+```
+
+你会得到这样的结果
+
+```bash
+
+File "<ipython-input-2-1599a9287f8b>", line 2
+    return lambda i: return n += i
+                          ^
+SyntaxError: invalid syntax
+
+```
+
+-----------------------------
+
+###返回赋值语句
+
+虽然作者说了一堆不让误解的话，但其实这么比较对python来说确实是不太公平的。
+首先，有一个问题问大家，在一门语言中如果允许返回一条赋值语句，那么会发生什么？
+
+比如下面的ruby代码，运行正常，但是那个返回的赋值确实是很坑爹的吧？
+
+```ruby
+def test
+  return a=2
+end
+
+b=test
+p b
+```
+
+类似的坏味道还有经常能见到的
+
+```ruby
+if a=2
+  ...
+end
+```
+
+多数情况下，我们想要做的只是`a==2`这样的判断。所以python语言是不允许返回赋值语句的。
+
+
+###赋值语句的语义
+
+赋值语句有着明确的语义。一般来说，除了赋值意外就是在当前的scope下创建局部变量，如果在使用前没有声明就会报错。
+python语句中函数可以访问def外部的变量，ruby则不能，个人来看两者各有优劣。
+
+```python
+a=1
+def test():
+    print(a)
+test()
+```
+
+这段代码是work的
+
+```ruby
+a=2
+def test
+  p a
+end
+test
+```
+
+这段代码是不work的，如果想让其工作，在ruby中需要显示的声明全局变量。
+
+```ruby
+$a=2
+def test
+  p $a
+end
+test
+```
+
+但是python中比较怪的是，当在作用域中使用了赋值语句，那么同名的变量就变成局部的了。也就是说如下的代码是不能正常工作的。
+
+```python
+a=0
+def test():
+    print(a)
+    a=1
+test()
+```
+
+这是因为在test函数中，显示的赋值让其以为a是一个局部变量，但是一开始打印a时，局部作用域中并没有这个变量，所以会报找不到a的错误。
+如果想让其工作，也就是把a变成的全局的，可以使用global关键字(某些时候可以使用nonlocal)
+
+```python
+a=0
+def test():
+    global a
+    print(a)
+    a=1
+test()
+```
+
+所以黑客与画家中比较的python代码如果展开并转换成正确的写法来写就是
+
+```python
+def foo(n):
+    def acc(i):
+        nonlocal n
+        n+=i
+        return n
+    return acc
+
+a=foo(0)
+print(a(1))
+print(a(2))
+print(a(3))
+```
+
+可见python的闭包也是可圈可点的。
+
+###python的lambda与函数
+
+你已经知道了，python是不允许返回赋值语句的，而这里要补充一点的是python的lambda只能是接收一行的(guido解释过原因)，所以不要期望在lambda中写一条局部赋值语句了。
+而这也是上面那段代码转换时需要将lambda转换成内部函数的原因。
+
+相比之下ruby使用内部函数就比较坑了，因为ruby中很难去访问函数意外的变量（这说明了ruby中的lambda和函数是两回事情），这里有段代码算是模拟了下
+
+```ruby
+def foo(n)
+  $n=n
+  def acc(i)
+    $n=$n+i
+  end
+  return method(:acc)
+end
+f=foo(1)
+f.call(2)
+f.call(3)
+```
+因为acc中是无法（简单的）访问到foo的n的，另外顺带黑一下ruby好了，method，symbol等的概念着实把函数这个东西区别且降格对待了。
+
+
+
+
