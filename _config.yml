@@ -40,9 +40,3 @@ locals:
   about: 关于
   newest: 最新文章
   archive: 归档
-
-sass:
-    sass_dir: public/css
-
-gems:
-- jekyll-compass
