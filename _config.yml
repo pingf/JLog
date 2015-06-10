@@ -43,3 +43,6 @@ locals:
 
 sass:
     sass_dir: public/css
+
+gems:
+- jekyll-compass
