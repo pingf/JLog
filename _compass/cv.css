@@ -1,0 +1,146 @@
+
+body, html {
+    top: 0px;
+    margin: 0px;
+    height: 100%;
+    background-color: white;
+    color: black;
+}
+
+.container {
+    top: 0;
+}
+
+#me {
+    padding: 20px;
+    margin: 0px auto;
+    background-color: #EDF4ED;
+}
+
+#me .left {
+    margin-top: 20px;
+    text-align: right;
+    line-height: 1;
+    color: #1F8F2F;
+}
+
+#me .right img{
+    border-radius: 100%;
+}
+
+.small {
+    font-size: 16px;
+}
+
+.large {
+    font-size: 32px;
+}
+
+
+/****** about *****/
+#about {
+    padding: 20px;
+    background-color: #f4e6f2;
+}
+#about .left img{
+    border-radius: 100%;
+    float: right;
+}
+
+#about .right {
+    clear: right;
+    margin-top: 20px;
+    text-align: left;
+    line-height: 1;
+    color: #1F8F2F;
+}
+
+/****** education *****/
+
+#education {
+    padding: 20px;
+    background-color: #EDF4ED;
+    color: #1F8F2F;
+}
+#education .left{
+    
+    text-align: right;
+}
+
+#education .right {
+    margin-top: -20px;
+}
+
+/****** experience  *****/
+
+#experience {
+    padding: 20px;
+    background-color: #f4e6f2;
+    color: #1F8F2F;
+}
+#experience .left{ 
+    margin-top: -20px;
+    text-align: right;
+}
+#experience .left img{
+    border-radius: 5%;
+}
+/****** skills *****/
+
+#skills {
+    padding: 20px;
+    background-color: #EDF4ED;
+    color: #1F8F2F;
+}
+
+#skills .left{
+    text-align: right;
+    padding-bottom: 30px;
+}
+
+#skills .right{
+    margin-top: -20px;
+}
+
+/****** interests *****/
+#interests {
+    padding: 20px;
+    background-color: #f4e6f2;
+    color: #1F8F2F;
+}
+
+#interests .left{
+    margin-top: -20px;
+    text-align: right;
+}
+
+#experience .left img{
+    border-radius: 10%;
+}
+
+#interests .right{
+}
+/****** projects *****/
+
+#projects {
+    padding-top: 20px;
+    background-color: #EDF4ED;
+    color: #1F8F2F;
+}
+
+#projects .project .left{
+    text-align: right;
+    padding-bottom: 20px;
+}
+
+#projects .project .right{
+    text-align: left;
+    margin-top: -20px;
+    padding-top: -20px;
+    padding-bottom: 20px;
+}
+/*****disqus*****/
+#disqus_thread {
+    margin: auto 50%;
+}
+
