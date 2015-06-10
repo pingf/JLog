@@ -3,7 +3,3 @@ _site/
 **/.DS_Store
 *.sublime-project
 *.sublime-workspace
-.ruby-gemset
-.ruby-version
-.sass-cache/
-
