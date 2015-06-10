@@ -11,6 +11,23 @@ body, html {
     top: 0;
 }
 
+
+
+/*#me,#about,#education,#experience,#skills,#interests,#projects {
+  animation: flyin 1.2s ease forwards;
+  opacity: 0;
+  transform: scale(2);
+  filter: blur(4px);
+}
+
+@keyframes flyin {
+   to { 
+     filter: blur(0);
+     transform: scale(1);
+     opacity: 1;
+   }
+}*/
+
 #me {
     padding: 20px;
     margin: 0px auto;
