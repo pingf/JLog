@@ -12,7 +12,7 @@ task :test do |t, args|
   p 'this is just a test'
 end
 
-desc "Create a post in _posts"
+desc "Create a post in _posts[tech,life,read,listen,watch,play]"
 task :new_post, :title, :category do |t, args|
   template = File.read('./templates/post.erb')
   render = ERB.new(template)
@@ -24,7 +24,7 @@ task :new_post, :title, :category do |t, args|
 
   exit(-1) if File.exist?(file_path)
   File.write(file_path, post_content)
-  system("echo '#{file_path}'| pbcopy")
+  system("echo '#{file_path}'| xclip -selection clipboard")
 end
 
 class PostTemplateParamsLoader
@@ -59,8 +59,3 @@ class PostTemplateParamsLoader
     "#{title.gsub(characters, "").gsub(whitespace, "-").downcase}.#{extension}"
   end
 end
-
-
-
-
-
