@@ -8,9 +8,9 @@
         {% for category in site.categories %}
          <li><a href="#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
         {% endfor %}
-        <li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>  
-        <li><a class="pjaxlink" href="{{ site.url }}/pages/archive.html">{{ site.locals.archive }}</a></li>
-        <li><a class="pjaxlink" href="{{ site.url }}/pages/about.html">{{ site.locals.about }}</a></li>
+        <li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>
+        <li><a class="pjaxlink" href="{{ site.url }}/jlog/pages/archive.html">{{ site.locals.archive }}</a></li>
+        <li><a class="pjaxlink" href="{{ site.url }}/jlog/pages/about.html">{{ site.locals.about }}</a></li>
         <!-- <li><a href="#tags" data-toggle="tab"><i class="fa fa-tags fa-lg"></i></a></li>
         <li><a class="pjaxlink" href="/pages/archive.html"><i class="fa fa-archive fa-lg"></i></a></li>
         <li><a class="pjaxlink" href="/pages/about.html"><i class="fa fa-user fa-lg"></i></a></li>
@@ -19,7 +19,7 @@
       <div class="aside1_bottom">
         <table class="table table-condensed">
           <tr>
-            <td><a href="{{ site.url }}/pages/atom.xml" target="_blank"><i class="fa fa-rss fa-lg" style="color:#fff;"></i></a></td>
+            <td><a href="{{ site.url }}/jlog/pages/atom.xml" target="_blank"><i class="fa fa-rss fa-lg" style="color:#fff;"></i></a></td>
             <td><a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-o fa-lg" style="color:#fff;"></i></a></td>
           </tr>
         </table>
@@ -27,21 +27,21 @@
     </div>
     <div class="col-md-10 col-xs-10 aside2">
       <div class="row">
-        <div class="tab-content"> 
-          {% for category in site.categories %} 
+        <div class="tab-content">
+          {% for category in site.categories %}
             <div class="tab-pane" id="{{ category[0] }}">
               <div class="list-group">
                 <!--<h2 class="center">{{ category[0] }}</h2>-->     <!--原来aside2上面的大标题-->
                 {% for post in category[1] %}
-                  <a href="{{ site.url }}{{ post.url }}" class="list-group-item-lay pjaxlink">{{post.title}}</a>
+                  <a href="{{ site.url }}/jlog/{{ post.url }}" class="list-group-item-lay pjaxlink">{{post.title}}</a>
                 {% endfor %}
               </div>
             </div>
-          {% endfor %}      
+          {% endfor %}
           <div class="tab-pane" id="tags">
             <div class="panel-group" id="accordion">
               <!--<h2 class="center">{{ site.locals.tags }}</h2>-->
-              {% for tag in site.tags %} 
+              {% for tag in site.tags %}
                 <div class="panel panel-info">
                   <div class="panel-heading">
                     <h4 class="panel-title">
@@ -51,7 +51,7 @@
                   </div>
                   <div id="{{ tag[0] }}" class="panel-collapse collapse">
                     {% for post in tag[1] %}
-                      <a  href='{{ site.url }}{{ post.url }}' class="list-group-item pjaxlink">
+                      <a  href='{{ site.url }}/jlog/{{ post.url }}' class="list-group-item pjaxlink">
                         {{post.title}}
                       </a>
                     {% endfor %}
